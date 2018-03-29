@@ -1,0 +1,26 @@
+spring:
+  cloud:
+    inetutils:
+      preferredNetworks:
+        - 192.168
+
+  kafka:
+    consumer:
+      bootstrap-servers: localhost:9092  # ak-node1.eprocurement.systems:9092,ak-node2.eprocurement.systems:9092,ak-node3.eprocurement.systems:9092
+      group-id: notification-kafka-consumer-group
+      enable-auto-commit: false
+    producer:
+      bootstrap-servers: localhost:9092  # feed.eprocurement.systems:9092
+      retries: 5
+      security:
+        username:
+        password:
+    listener:
+      ack-mode: manual_immediate
+
+cassandra:
+  contact-points: localhost  # ac-node1.eprocurement.systems,ac-node2.eprocurement.systems,ac-node3.eprocurement.systems
+  keyspace-name: ocds
+  port: 9042
+  username:
+  password:

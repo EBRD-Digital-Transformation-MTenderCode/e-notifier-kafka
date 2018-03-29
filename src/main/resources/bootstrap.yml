@@ -1,0 +1,11 @@
+server:
+  port: @project.service.port@
+
+spring:
+  application:
+    name: e-notifier-kafka
+
+  cloud:
+    config:
+      failFast: false
+      name: e-notifier-kafka
