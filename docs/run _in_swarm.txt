@@ -18,6 +18,10 @@ docker service create --name="notifier-kafka-1" \
   --env __PROP_spring_cloud_config_uri=http://config-server-1:8700 \
   --env __PROP_spring_profiles_active=default \
   --env __PROP_spring_cloud_config_label= \
+  --env __PROP_spring_kafka_producer_security_username= \
+  --env __PROP_spring_kafka_producer_security_password= \
+  --env __PROP_cassandra_username= \
+  --env __PROP_cassandra_password= \
   --publish published=9141,target=8080 \
   --network ocds-network \
   --dns 10.0.10.115 \
