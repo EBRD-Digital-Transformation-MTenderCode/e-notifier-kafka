@@ -30,7 +30,7 @@
         <kotlinx-coroutines.version>0.22.5</kotlinx-coroutines.version>
 
         <!--Docker-->
-        <docker-registry>docker-registry.eprocurement.systems</docker-registry>
+        <docker-registry>dev.docker-registry.eprocurement.systems</docker-registry>
         <docker-image-profile></docker-image-profile>
         <docker-maven-plugin.version>0.23.0</docker-maven-plugin.version>
 
