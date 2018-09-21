@@ -10,7 +10,7 @@ docker network create \
 
 
 #****************************************#
-# Run E-Notifier-Kafka                   #
+# Run Notifier-Kafka                     #
 # Need assign uri, username and password #
 #****************************************#
 
@@ -24,5 +24,5 @@ docker run -d --name=notifier-kafka-1 \
   --env __PROP_cassandra_password= \
   --publish 9141:8080 \
   --network ocds-network \
-  --dns 10.0.10.115 \
-  docker-registry.eprocurement.systems/e-notifier-kafka:17.12.1
+  --dns 10.0.20.115 \
+  dev.docker-registry.eprocurement.systems/notifier-kafka:17.12.1

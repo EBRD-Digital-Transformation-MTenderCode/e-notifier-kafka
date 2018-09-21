@@ -3,9 +3,9 @@ server:
 
 spring:
   application:
-    name: e-notifier-kafka
+    name: notifier-kafka
 
   cloud:
     config:
       failFast: false
-      name: e-notifier-kafka
+      name: notifier-kafka

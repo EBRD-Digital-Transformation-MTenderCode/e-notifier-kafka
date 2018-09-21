@@ -6,9 +6,9 @@
     </appender>
 
     <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>logs/e-notifier-kafka.log</file>
+        <file>logs/notifier-kafka.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>logs/e-notifier-kafka%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <fileNamePattern>logs/notifier-kafka%d{yyyy-MM-dd}.%i.log</fileNamePattern>
             <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
                 <maxFileSize>5MB</maxFileSize>
             </timeBasedFileNamingAndTriggeringPolicy>
@@ -22,7 +22,7 @@
                     <fieldName>level</fieldName>
                 </logLevel>
                 <pattern>
-                    <pattern>{"appName": "e-notifier-kafka", "appVersion": "17.12.1"}</pattern>
+                    <pattern>{"appName": "notifier-kafka", "appVersion": "17.12.1"}</pattern>
                 </pattern>
                 <version/> <!-- Logstash json format version, the @version field in the output-->
                 <loggerName/>
@@ -45,7 +45,7 @@
                     <fieldName>level</fieldName>
                 </logLevel>
                 <pattern>
-                    <pattern>{"appName": "e-notifier-kafka", "appVersion": "17.12.1"}</pattern>
+                    <pattern>{"appName": "notifier-kafka", "appVersion": "17.12.1"}</pattern>
                 </pattern>
                 <version/> <!-- Logstash json format version, the @version field in the output-->
                 <loggerName/>
@@ -62,13 +62,11 @@
     <logger name="com.procurement.notifierkafka" level="WARN" additivity="false">
         <appender-ref ref="FILE"/>
         <appender-ref ref="LOGSTASH"/>
-        <appender-ref ref="STDOUT"/>
     </logger>
 
     <logger name="org.springframework" level="INFO" additivity="false">
         <appender-ref ref="FILE"/>
         <appender-ref ref="LOGSTASH"/>
-        <appender-ref ref="STDOUT"/>
     </logger>
 
     <root level="INFO">

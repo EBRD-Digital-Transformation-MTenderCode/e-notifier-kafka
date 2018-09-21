@@ -10,12 +10,12 @@ docker network create \
 
 
 #****************************************#
-# Run E-Notifier-Kafka                   #
+# Run Notifier-Kafka                     #
 # Need assign uri, username and password #
 #****************************************#
 
-docker service create --name="notifier-kafka-1" \
-  --env __PROP_spring_cloud_config_uri=http://config-server-1:8700 \
+docker service create --name="notifier-kafka" \
+  --env __PROP_spring_cloud_config_uri=http://config-server:8080 \
   --env __PROP_spring_profiles_active=default \
   --env __PROP_spring_cloud_config_label= \
   --env __PROP_spring_kafka_producer_security_username= \
@@ -24,6 +24,6 @@ docker service create --name="notifier-kafka-1" \
   --env __PROP_cassandra_password= \
   --publish published=9141,target=8080 \
   --network ocds-network \
-  --dns 10.0.10.115 \
+  --dns 10.0.20.115 \
   --with-registry-auth \
-  docker-registry.eprocurement.systems/e-notifier-kafka:17.12.1
+  dev.docker-registry.eprocurement.systems/notifier-kafka:17.12.1
