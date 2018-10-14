@@ -59,14 +59,16 @@
         </encoder>
     </appender>
 
-    <logger name="com.procurement.notifierkafka" level="WARN" additivity="false">
+    <logger name="com.procurement.notifierkafka" level="INFO" additivity="false">
         <appender-ref ref="FILE"/>
         <appender-ref ref="LOGSTASH"/>
+        <appender-ref ref="STDOUT"/>
     </logger>
 
     <logger name="org.springframework" level="INFO" additivity="false">
         <appender-ref ref="FILE"/>
         <appender-ref ref="LOGSTASH"/>
+        <appender-ref ref="STDOUT"/>
     </logger>
 
     <root level="INFO">
