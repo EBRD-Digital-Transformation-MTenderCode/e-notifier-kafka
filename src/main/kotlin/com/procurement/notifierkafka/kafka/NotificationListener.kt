@@ -2,7 +2,6 @@ package com.procurement.notifierkafka.kafka
 
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.procurement.notifierkafka.domain.Notification
-import com.procurement.notifierkafka.exception.ParseNotificationException
 import kotlinx.coroutines.experimental.runBlocking
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
@@ -23,9 +22,10 @@ class NotificationListener(
     )
     fun listenToNotification(message: String, ack: Acknowledgment) {
         try {
-            val notification = parse(message)
-            runBlocking {
-                notificationSender.send(notification)
+            parse(message)?.also { notification ->
+                runBlocking {
+                    notificationSender.send(notification)
+                }
             }
             ack.acknowledge()
         } catch (ex: Exception) {
@@ -33,9 +33,10 @@ class NotificationListener(
         }
     }
 
-    private fun parse(message: String): Notification = try {
+    private fun parse(message: String): Notification? = try {
         mapper.readValue(message, Notification::class.java)
     } catch (ex: Exception) {
-        throw ParseNotificationException(message)
+        log.error("Error of convert 'JSON' to request body: '$message'", ex)
+        null
     }
 }
