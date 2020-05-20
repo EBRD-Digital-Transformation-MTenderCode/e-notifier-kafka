@@ -22,11 +22,13 @@ class NotificationListener(
     )
     fun listenToNotification(message: String, ack: Acknowledgment) {
         try {
-            parse(message)?.also { notification ->
-                runBlocking {
-                    notificationSender.send(notification)
+            log.debug("Received message: '{}'.", message)
+            parse(message)
+                ?.also { notification ->
+                    runBlocking {
+                        notificationSender.send(notification)
+                    }
                 }
-            }
             ack.acknowledge()
         } catch (ex: Exception) {
             log.error("Error of processing notification.", ex)
