@@ -2,5 +2,5 @@
 -Dlogging.config="path to file 'logback.xml'"
 
 example
--Dspring.config.location=file:/home/maxim/dev/workspace/procuremen/e-notifier-kafka/src/main/resources/application.yml
--Dlogging.config=/home/maxim/dev/workspace/procuremen/e-notifier-kafka/src/main/resources/logback.xml
+-Dspring.config.location=file:/path/to/application-dev.yml
+-Dlogging.config=/path/to/logback.xml
